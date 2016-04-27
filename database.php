@@ -60,6 +60,12 @@
                 y: evt.clientY - rect.top
             };
         }
+        function myFunction() {
+            document.getElementById("i1").setAttribute("value", randomFont())
+            document.getElementById("i2").setAttribute("value", getFontName(fonterinos, randomFont()))
+            document.getElementById("i3").setAttribute("value", randomFont())
+            document.getElementById("i4").setAttribute("value", randomFont())
+        }
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext('2d');
         canvas.toDataURL();
@@ -75,16 +81,19 @@
             var message = 'Mouse clicked: ' + mousePos.x + ', ' + mousePos.y;
             writeMessageClick(canvas, message);
         }, false);
-
+        
+            
+        
 
     </script>
     <form method="post" action="database.php">
-        <input name="font_ID" type="number" value= '3' readonly>
-        <input name="name" type="text" value = "works"  readonly >
-        <input name = "x_axis" type="hidden" value="44.5" readonly>
-        <input name = "y_axis" type="hidden" value="123.125" readonly>
-        <input type="submit" name="submit">
+        <input id="i1" name="font_ID" type="number" readonly>
+        <input id="i2" name="name" type="text" readonly >
+        <input id="i3" name = "x_axis" type="hidden" readonly>
+        <input id="i4" name = "y_axis" type="hidden" readonly>
+        <input type="submit" name="submit" onclick="myFunction()">
     </form>
+    
 </div>
 
     <?php
