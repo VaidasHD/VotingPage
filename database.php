@@ -32,6 +32,8 @@
             return rn;
         }
         var theNumber = randomFont();
+        var xa ;
+        var ya;
         document.getElementById("wizard").style.fontFamily = getFontName(fonterinos, theNumber);
 
         function writeMessage(canvas, message) {
@@ -63,8 +65,8 @@
         function myFunction() {
             document.getElementById("i1").setAttribute("value", theNumber)
             document.getElementById("i2").setAttribute("value", getFontName(fonterinos, theNumber))
-            document.getElementById("i3").setAttribute("value", theNumber)
-            document.getElementById("i4").setAttribute("value", theNumber)
+            document.getElementById("i3").setAttribute("value", xa)
+            document.getElementById("i4").setAttribute("value", ya)
         }
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext('2d');
@@ -79,6 +81,8 @@
         canvas.addEventListener('mousedown', function(evt) {
             var mousePos = getMousePos(canvas, evt);
             var message = 'Mouse clicked: ' + mousePos.x + ', ' + mousePos.y;
+            xa = mousePos.x;
+            ya = mousePos.y;
             writeMessageClick(canvas, message);
         }, false);
         
