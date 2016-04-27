@@ -106,7 +106,7 @@
         $fontID = $_POST['font_ID'];
         $name = $_POST['name'];
         $xaxis = $_POST['x_axis'];
-        $yaxis = $_POST['Y_axis'];
+        $yaxis = $_POST['y_axis'];
         $sql = "INSERT INTO fontlist (font_ID, name, x_axis, y_axis) 
                 VALUES ('$fontID', '$name' , '$xaxis' , '$yaxis')";
             echo "{$fontID} {$name} {$xaxis} {$yaxis}";
