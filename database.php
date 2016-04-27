@@ -96,8 +96,9 @@
     if(isset($_POST['submit'])){
        // $mysqli = new mysqli($db_host, $db_username,$db_pass,$db_name);
         $mysqli = mysqli_connect("$db_host", "$db_username", "$db_pass", "$db_name");
-        if($mysqli){
-            die("cannot conect : " . mysqli_error($mysqli));
+        if (mysqli_connect_errno())
+        {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
       //  mysqli_select_db($mysqli, "$db_name");
       //  $newque = "INSERT INTO fontlist (font_ID, name, x_axis, y_axis) VALUES ('{$mysqli->real_escape_string($_POST['font_ID'])}',
