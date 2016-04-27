@@ -31,8 +31,8 @@
             var rn = Math.floor((Math.random()*49) );
             return rn;
         }
-
-        document.getElementById("wizard").style.fontFamily = getFontName(fonterinos, randomFont());
+        var theNumber = randomFont();
+        document.getElementById("wizard").style.fontFamily = getFontName(fonterinos, theNumber);
 
         function writeMessage(canvas, message) {
             var context = canvas.getContext('2d');
@@ -61,10 +61,10 @@
             };
         }
         function myFunction() {
-            document.getElementById("i1").setAttribute("value", randomFont())
-            document.getElementById("i2").setAttribute("value", getFontName(fonterinos, randomFont()))
-            document.getElementById("i3").setAttribute("value", randomFont())
-            document.getElementById("i4").setAttribute("value", randomFont())
+            document.getElementById("i1").setAttribute("value", theNumber)
+            document.getElementById("i2").setAttribute("value", getFontName(fonterinos, theNumber))
+            document.getElementById("i3").setAttribute("value", theNumber)
+            document.getElementById("i4").setAttribute("value", theNumber)
         }
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext('2d');
