@@ -109,7 +109,7 @@
         $yaxis = $_POST['Y_axis'];
         $sql = "INSERT INTO fontlist (font_ID, name, x_axis, y_axis) 
                 VALUES ('$fontID', '$name' , '$xaxis' , '$yaxis')";
-
+            echo "{$fontID} {$name} {$xaxis} {$yaxis}";
         mysqli_query($mysqli, $sql);
         mysqli_close($mysqli);
        /* $insert = $mysqli->query($newque);
