@@ -16,10 +16,11 @@
 <div id="div1" style="text-align: center">
     <canvas id="myCanvas" width="401" height="401"> </canvas>
     <script>
+        //Array with font list with global variables
         var fonterinos = ["Caveat Brush", "Caveat", "Chonburi", "Itim", "Tillana", "Arya", "Amita", "Kurale", "Roboto Mono", "Lateef", "Modak", "Dekko", "Ranga", "Suranna", "Timmana", "Lakki Reddy", "Ravi Prakash", "Gurajada", "Dhurjati", "Kalam", "Sarpanch" , "Rozha One", "Khand", "Rajdhani", "Teko", "Rubik One", "Rubik Mono One", "Fira Mono", "Alegreya Sans SC", "Lily Script One", "Pathway Gothic One", "Gabriela", "Patrick Hand SC", "Kavoon", "Fruktur", "Wendy One", "Denk One", "Elsie", "Grand Hotel", "New Rocker", "Snowburst One", "Freckle Face", "Vampiro One", "Hanalei", "Hanalei Fill", "Margarine", "Purple Purse", "Croissant One", "Oleo Script Swash Caps", "Risque"];
         var xa ;
         var ya;
-
+        //Functions to work with font information retrieval
         function getFontName(array, j) {
             var t = j;
             return array[t];
@@ -29,10 +30,11 @@
             var rn = Math.floor((Math.random()*49) );
             return rn;
         }
-        var theNumber = randomFont();
+        var theNumber = randomFont(); //random font selected
 
         document.getElementById("wizard").style.fontFamily = getFontName(fonterinos, theNumber);
 
+        //Functions for canvas
         function writeMessage(canvas, message) {
             var context = canvas.getContext('2d');
             context.clearRect(0, 0, canvas.width, canvas.height-100);
@@ -55,12 +57,14 @@
                 y: evt.clientY - rect.top
             };
         }
+        //Function to set up values from the form to the database
         function myFunction() {
             document.getElementById("i1").setAttribute("value", theNumber)
             document.getElementById("i2").setAttribute("value", getFontName(fonterinos, theNumber))
             document.getElementById("i3").setAttribute("value", xa)
             document.getElementById("i4").setAttribute("value", ya)
         }
+        //Canvas mousemove command and mousedown implementation
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext('2d');
         canvas.toDataURL();
@@ -90,6 +94,7 @@
 </div>
 
     <?php
+    //Php code for accessing mysql database and submitting data
     $db_host = "us-cdbr-azure-west-c.cloudapp.net";
     $db_username = "b22028a64fe197";
     $db_pass = "83d01b72";
@@ -109,7 +114,7 @@
 
         $sql = "INSERT INTO fontlist (font_ID, name, x_axis, y_axis) 
                 VALUES ('$fontID', '$name' , '$xaxis' , '$yaxis')";
-            echo "{$fontID} {$name} {$xaxis} {$yaxis}";
+
         mysqli_query($mysqli, $sql);
         mysqli_close($mysqli);
 
