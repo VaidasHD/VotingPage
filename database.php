@@ -91,6 +91,7 @@
         <input id="i4" name = "y_axis" type="hidden" readonly>
         <input type="submit" name="submit" onclick="myFunction()">
     </form>
+
 </div>
 
     <?php
